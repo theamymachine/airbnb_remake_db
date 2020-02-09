@@ -1,0 +1,2 @@
+class StartDateMustBeBeforeEndDate < ApplicationRecord
+end

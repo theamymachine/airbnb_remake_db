@@ -1,0 +1,2 @@
+class AddCityColumnToListing < ApplicationRecord
+end
