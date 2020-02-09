@@ -1,0 +1,2 @@
+class RemoveUserFromReservationAndListing < ApplicationRecord
+end

@@ -18,13 +18,13 @@ require 'faker'
   }
 
 50.times{
-  Listing.create!(available_beds: rand(5), price: rand(50..200), description: Faker::Restaurant.description, has_wifi: Faker::Boolean.boolean(true_ratio: 0.2), welcome_message: Faker::ChuckNorris.fact, city: City.all.sample, user: User.all.sample)
+  Listing.create!(available_beds: rand(5), price: rand(50..200), description: Faker::Restaurant.description, has_wifi: Faker::Boolean.boolean(true_ratio: 0.2), welcome_message: Faker::ChuckNorris.fact, city: City.all.sample, admin: User.all.sample)
   }
 
 5.times{
-  Reservation.create!(start_date: Faker::Date.in_date_period(year: 2020, month: 1), end_date: Faker::Date.between(from: 7.days.ago, to: Date.today), user: User.all.sample, listing: Listing.all.sample)
+  Reservation.create!(start_date: Faker::Date.in_date_period(year: 2020, month: 1), end_date: Faker::Date.between(from: 7.days.ago, to: Date.today), guest: User.all.sample, listing: Listing.all.sample)
   }
 
 5.times{
-  Reservation.create!(start_date: Faker::Date.forward(days: 30), end_date: Faker::Date.in_date_period(year: 2020, month: 4), user: User.all.sample, listing: Listing.all.sample)
+  Reservation.create!(start_date: Faker::Date.forward(days: 30), end_date: Faker::Date.in_date_period(year: 2020, month: 4), guest: User.all.sample, listing: Listing.all.sample)
   }

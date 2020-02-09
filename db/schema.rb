@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_172752) do
+ActiveRecord::Schema.define(version: 2020_02_09_175012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +30,10 @@ ActiveRecord::Schema.define(version: 2020_02_09_172752) do
     t.text "welcome_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.bigint "city_id"
     t.bigint "admin_id"
     t.index ["admin_id"], name: "index_listings_on_admin_id"
     t.index ["city_id"], name: "index_listings_on_city_id"
-    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -43,12 +41,10 @@ ActiveRecord::Schema.define(version: 2020_02_09_172752) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.bigint "listing_id"
     t.bigint "guest_id"
     t.index ["guest_id"], name: "index_reservations_on_guest_id"
     t.index ["listing_id"], name: "index_reservations_on_listing_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,7 +57,5 @@ ActiveRecord::Schema.define(version: 2020_02_09_172752) do
   end
 
   add_foreign_key "listings", "cities"
-  add_foreign_key "listings", "users"
   add_foreign_key "reservations", "listings"
-  add_foreign_key "reservations", "users"
 end
