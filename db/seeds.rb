@@ -6,7 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 require 'faker'
+
+User.destroy_all
+City.destroy_all
+Listing.destroy_all
+Reservation.destroy_all
 
 20.times{
   User.create!(name: Faker::FunnyName.name, tel_number: Faker::PhoneNumber.cell_phone, email: Faker::Internet.email, description: 
